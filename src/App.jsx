@@ -4,14 +4,16 @@ import { useState } from 'react'
 
 function App() {
 
+  let usd = 83.42;
+
   const [amount, setamount] = useState(0)
   const [from, setFrom] = useState("usd")
   const [to, setto] = useState("inr")
   const [convertedAmount, setconvertedamount] = useState (0)
 
-  const currencyInfo = useCurrencyconveter(from)
-
-  const option = Object.keys(currencyInfo)
+  const currencyInfo = 83.42
+  const option = ['USD']
+  const optiontwo = ['IND']
 
 
   const swap = () => {
@@ -22,7 +24,7 @@ function App() {
   }
 
 const convert = () => {
-  setconvertedamount(amount * currencyInfo[to])
+  setconvertedamount(amount * currencyInfo)
 }
 return (
   <div
@@ -62,14 +64,14 @@ return (
                       <Input
                           label="To"
                           amount={convertedAmount}
-                          currencyOpetion = {option}
+                          currencyOpetion = {optiontwo}
                           onCurrencyChange = {(curr) => setto(curr)}
                           selectCurrency = {to}
                           amountdisable
                       />
                   </div>
                   <button type="submit" className="w-full bg-blue-600 text-white px-4 py-3 rounded-lg">
-                      Convert {from.toUpperCase()} to {to.toUpperCase()}
+                      Convert USD to INR
                   </button>
               </form>
           </div>
